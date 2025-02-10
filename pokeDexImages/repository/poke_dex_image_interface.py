@@ -2,11 +2,13 @@ class PokeDexImageDataBaseInterface:
     def setup_database(self):
         pass
 
-    def add_image(self,pokemon_id, image_path):
+    def save(self, pokemon_id, image_path):
         pass
 
-    def get_image_path(self, pokemon_id):
+    def find_by_id(self, pokemon_id):
         pass
+
+
 
     def delete_image(self, pokemon_id):
         pass
