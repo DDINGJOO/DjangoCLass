@@ -2,7 +2,7 @@ import sys
 
 import pokeDex
 from pokeDex import repository
-from pokeDex.repository.poke_dex_interface import PokeDexDatabaseInterface
+from pokeDex.repository.poke_dex_database_interface  import PokeDexDatabaseInterface
 import sqlite3
 import os
 PATH = os.path.dirname(os.path.abspath(__file__))
@@ -73,7 +73,7 @@ class PokeDexSqlite3(PokeDexDatabaseInterface):
             cursor.execute(self.COMMANDS.get("delete_pokemon_by_number_query"), (number,))
             conn.commit()
 
-        def fetch_pokemons_data_query_sorted(self):
+    def fetch_pokemons_data_query_sorted(self):
             with sqlite3.connect(self.DB_PATH) as conn:
                 cursor = conn.cursor()
                 cursor.execute(self.COMMANDS.get("fetch_pokemons_data_query_sorted"))
@@ -139,9 +139,3 @@ if __name__ == "__main__":
     print(database.fetch_all_pokemons())
     print(database.fetch_pokemon_by_name("Pikachu"))
     print(database.fetch_pokemons_data_query_sorted())
-
-
-
-
-
-

@@ -19,6 +19,7 @@ from django.urls import path, include
 from mySite.views import pokemon_list
 
 urlpatterns = [
-    path('api/', include('pokeDex.controller.urls')),
+    path('api/pokedex/', include('pokeDex.controller.urls')),
+    path('api/pokedeximage/', include('pokeDexImages.controller.urls')),
     path('pokeDex/', pokemon_list, name='pokemon_list'),
 ]

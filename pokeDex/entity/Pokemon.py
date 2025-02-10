@@ -1,4 +1,6 @@
 import requests
+from dotenv import load_dotenv
+
 from common.loggingManeger.logConfig import log_message
 import os
 
@@ -32,11 +34,13 @@ class Pokemon:
 
 
     def fetch_pokemon_data(self):
+        load_dotenv()
         try:
             log_message("info","pokemon.py -> Pokemon.fetch_pokemon_data", f"number: {self.number}")
 
-            name_url = f"{os.environ.get("POKEAPI_BASE_URL")}/pokemon-form/{self.number}/"
-            stats_url = f"{os.environ.get("POKEAPI_BASE_URL")}/pokemon/{self.number}/"
+            name_url = f"{os.environ.get("POKEAPI_STATS_BASE_URL")}/pokemon-form/{self.number}/"
+            stats_url = f"{os.environ.get("POKEAPI_STATS_BASE_URL")}/pokemon/{self.number}/"
+            print(f"Name URL: {name_url}")
 
             name_response = requests.get(name_url)
             stats_response = requests.get(stats_url)

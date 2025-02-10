@@ -2,7 +2,7 @@ from pprint import pprint
 
 from common.loggingManeger.logConfig import log_message
 from pokeDex.entity.Pokemon import Pokemon, Pokemons
-from common.database.database_selector import DataBaseSelector
+from pokeDex.config.database_selector import DataBaseSelector
 
 
 
@@ -67,9 +67,3 @@ if __name__ == '__main__':
     pprint(poke_service.get_pokemons_by_name_ASC())
 
     # pokemon = poke_service.insert_pokemons_by_number_until_number(10)
-
-
-
-
-
-
